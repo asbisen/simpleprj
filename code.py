@@ -2,6 +2,26 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+def py310check():
+    import collections
+    import warnings
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        from collections import MutableMapping  # Removed in Python 3.10+
+
+    import asyncio
+    async def example_coroutine():
+        print("Running coroutine")
+
+    # Deprecated parameter `loop`
+    loop = asyncio.get_event_loop()
+    asyncio.run_coroutine_threadsafe(example_coroutine(), loop=loop)
+
+py310check()
+
+
 # Generate synthetic data
 x = np.linspace(-1, 1, 100, dtype=np.float32)
 y = 2 * x + 1 + np.random.normal(0, 0.1, size=x.shape).astype(np.float32)
