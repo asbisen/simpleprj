@@ -1,0 +1,10 @@
+name: myproject
+channels:
+  - conda-forge
+dependencies:
+  - python <3.11
+  - ipykernel >=5.1
+  - ipywidgets
+  - pytorch <1.10
+  - matplotlib
+  - numpy <1.25
